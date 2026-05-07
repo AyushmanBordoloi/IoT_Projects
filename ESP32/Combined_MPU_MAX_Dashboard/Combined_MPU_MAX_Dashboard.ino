@@ -6,8 +6,8 @@
 #include <WebServer.h>
 
 // ── WiFi Credentials ──────────────────────────────────────
-const char* ssid     = "NoName";
-const char* password = "NoNamelol";
+const char* ssid     = "Rezaur";
+const char* password = "12345677";
 
 WebServer server(80);
 
@@ -358,16 +358,6 @@ void readAndPrintMPU6050() {
   g_gy   = GyY / 131.0;
   g_gz   = GyZ / 131.0;
   g_temp = (Tmp / 340.0) + 36.53;
-
-  Serial.println("── MPU6050 ──────────────────────────────");
-  Serial.print("Ac: ");
-  Serial.print(g_ax, 2); Serial.print("g | ");
-  Serial.print(g_ay, 2); Serial.print("g | ");
-  Serial.print(g_az, 2); Serial.print("g  ||  Gy: ");
-  Serial.print(g_gx, 1); Serial.print("°/s | ");
-  Serial.print(g_gy, 1); Serial.print("°/s | ");
-  Serial.print(g_gz, 1); Serial.print("°/s  ||  Temp: ");
-  Serial.print(g_temp, 1); Serial.println("°C");
 }
 
 // ─────────────────────────────────────────────────────────
@@ -475,26 +465,6 @@ void loop() {
   }
 
   // ── Print both sensors together every cycle ───────────
-  Serial.println("=========================================");
   readAndPrintMPU6050();
-  Serial.println("── MAX30102 ─────────────────────────────");
-  if (fingerDetected) {
-    Serial.print("Heart Rate : ");
-    if (beatAvg > 0) {
-      Serial.print(beatAvg); Serial.println(" bpm");
-    } else {
-      Serial.println("Calculating...");
-    }
-    Serial.print("SpO2       : ");
-    if (spo2Avg > 0) {
-      Serial.print(spo2Avg); Serial.println(" %");
-    } else {
-      Serial.println("Calculating...");
-    }
-  } else {
-    Serial.println("No finger detected. Place finger for readings.");
-  }
-  Serial.println("=========================================");
 }
 
-//use ip http://10.196.130.24 to access the dashboard

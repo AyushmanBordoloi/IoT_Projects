@@ -13,8 +13,8 @@
 // ================================================================
 
 // WiFi
-#define WIFI_SSID            "your_wifi_ssid"
-#define WIFI_PASS            "your_wifi_password"
+#define WIFI_SSID            "NoName"
+#define WIFI_PASS            "NoNamelol"
 
 // MQTT broker — set this to your server's local IP
 #define MQTT_BROKER          "192.168.1.100"

@@ -106,6 +106,8 @@ void setup() {
   // Scan I2C bus — immediately shows if wiring is correct
   scanI2C();
 
+  delay (100);
+
   // Init sensors
   max30102Ready = initMAX30102();
   mpu6050Ready  = initMPU6050();

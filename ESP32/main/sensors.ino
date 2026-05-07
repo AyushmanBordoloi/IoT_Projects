@@ -28,6 +28,12 @@ bool initMAX30102() {
 }
 
 bool initMPU6050() {
+  Wire.beginTransmission(0x68);
+  Wire.write(0x6B);   // PWR_MGMT_1 register
+  Wire.write(0x00);   // wake up the MPU6050
+  Wire.endTransmission();
+  delay(50);
+
   if (!mpu.begin()) {
     Serial.println("[MPU6050] NOT FOUND — check SDA=GPIO4, SCL=GPIO5");
     return false;
